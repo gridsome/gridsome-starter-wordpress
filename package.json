@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "scripts": {
+    "develop": "gridsome develop",
+    "explore": "gridsome explore",
+    "build": "gridsome build"
+  },
+  "dependencies": {
+    "@gridsome/source-wordpress": "^1.0.0",
+    "gridsome": "^0.0.1",
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
+    "vue-server-renderer": "^2.5.17",
+    "vue-template-compiler": "^2.5.17"
+  }
+}
