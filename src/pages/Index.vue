@@ -1,6 +1,7 @@
 <template>
   <Layout>
     <h1>Welcome to my blog :)</h1>
+    <Pager :info="$page.allWordPressPost.pageInfo"/>
     <ul>
       <li v-for="{ node } in $page.allWordPressPost.edges" :key="node._id">
         <h2 v-html="node.title"/>
@@ -12,8 +13,12 @@
 </template>
 
 <graphql>
-query Home {
-  allWordPressPost {
+query Home ($page: Int) {
+  allWordPressPost (perPage: 10, page: $page) @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
     edges {
       node {
         _id
@@ -30,10 +35,12 @@ query Home {
 
 <script>
 import Layout from '@/layouts/Default.vue'
+import { Pager } from '@gridsome/components'
 
 export default {
   components: {
-    Layout
+    Layout,
+    Pager
   }
 }
 </script>
