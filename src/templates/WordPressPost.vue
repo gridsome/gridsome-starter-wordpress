@@ -17,11 +17,5 @@ query Post ($path: String!) {
 </graphql>
 
 <script>
-import Layout from '@/layouts/Default.vue'
-
-export default {
-  components: {
-    Layout
-  }
-}
+export default {}
 </script>

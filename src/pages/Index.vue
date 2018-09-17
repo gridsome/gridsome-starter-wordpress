@@ -34,12 +34,10 @@ query Home ($page: Int) {
 </graphql>
 
 <script>
-import Layout from '@/layouts/Default.vue'
-import { Pager } from '@gridsome/components'
+import { Pager } from 'gridsome'
 
 export default {
   components: {
-    Layout,
     Pager
   }
 }

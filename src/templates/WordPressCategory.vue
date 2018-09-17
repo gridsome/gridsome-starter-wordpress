@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <Layout>
     ...
-  </div>
+  </Layout>
 </template>
 
 <graphql>
@@ -13,11 +13,5 @@ query Category ($path: String!) {
 </graphql>
 
 <script>
-import Layout from '@/layouts/Default.vue'
-
-export default {
-  components: {
-    Layout
-  }
-}
+export default {}
 </script>

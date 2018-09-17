@@ -2,11 +2,11 @@
   <div class="layout">
     <header class="header">
       <strong>
-        <router-link :to="{ name: 'home' }">Gridsome</router-link>
+        <g-link :to="{ name: 'home' }">Gridsome</g-link>
       </strong>
       <nav class="nav">
-        <router-link class="nav__link" :to="{ name: 'home' }">Home</router-link>
-        <router-link class="nav__link" :to="{ name: 'about' }">About</router-link>
+        <g-link class="nav__link" :to="{ name: 'home' }">Home</g-link>
+        <g-link class="nav__link" :to="{ name: 'about' }">About</g-link>
       </nav>
     </header>
     <slot/>
