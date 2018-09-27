@@ -4,13 +4,13 @@
   </Layout>
 </template>
 
-<graphql>
+<page-query>
 query PostTag ($path: String!) {
   wordPressPostTag (path: $path) {
     title
   }
 }
-</graphql>
+</page-query>
 
 <script>
 export default {}

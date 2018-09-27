@@ -4,13 +4,13 @@
   </Layout>
 </template>
 
-<graphql>
+<page-query>
 query Category ($path: String!) {
   wordPressCategory (path: $path) {
     title
   }
 }
-</graphql>
+</page-query>
 
 <script>
 export default {}

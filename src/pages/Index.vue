@@ -12,7 +12,7 @@
   </Layout>
 </template>
 
-<graphql>
+<page-query>
 query Home ($page: Int) {
   allWordPressPost (perPage: 10, page: $page) @paginate {
     pageInfo {
@@ -31,7 +31,7 @@ query Home ($page: Int) {
     }
   }
 }
-</graphql>
+</page-query>
 
 <script>
 import { Pager } from 'gridsome'

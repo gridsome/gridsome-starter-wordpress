@@ -5,7 +5,7 @@
   </Layout>
 </template>
 
-<graphql>
+<page-query>
 query Post ($path: String!) {
   wordPressPost (path: $path) {
     title
@@ -14,7 +14,7 @@ query Post ($path: String!) {
     }
   }
 }
-</graphql>
+</page-query>
 
 <script>
 export default {}
