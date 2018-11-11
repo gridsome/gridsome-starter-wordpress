@@ -6,7 +6,7 @@
     "build": "gridsome build"
   },
   "dependencies": {
-    "@gridsome/source-wordpress": "^0.0.4",
-    "gridsome": "^0.2.4"
+    "@gridsome/source-wordpress": "^0.1.0",
+    "gridsome": "^0.3.0"
   }
 }
