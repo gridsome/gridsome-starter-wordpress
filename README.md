@@ -1,7 +1,7 @@
 # WordPress starter for Gridsome
 
 ## Install
-`gridsome create **my-gridsome-project** wordpress`
+`gridsome create my-gridsome-project wordpress`
 
 ## Guide
 
