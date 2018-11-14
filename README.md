@@ -1,5 +1,8 @@
 # WordPress starter for Gridsome
 
+## Install
+`gridsome create **my-gridsome-project** wordpress`
+
 ## Guide
 
 Add your WordPress URL to the plugin options.
