@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    ...
+    <h1 v-html="$page.wordPressPostTag.title"/>    
   </Layout>
 </template>
 
