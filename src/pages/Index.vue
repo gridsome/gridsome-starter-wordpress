@@ -5,7 +5,7 @@
     <ul>
       <li v-for="{ node } in $page.allWordPressPost.edges" :key="node._id">
         <h2 v-html="node.title"/>
-        <div v-html="node.fields.excerpt"/>
+        <div v-html="node.excerpt"/>
         <router-link :to="node.path">Read more</router-link>
       </li>
     </ul>
@@ -21,12 +21,10 @@ query Home ($page: Int) {
     }
     edges {
       node {
-        _id
+        id
         title
         path
-        fields {
-          excerpt
-        }
+        excerpt
       }
     }
   }
