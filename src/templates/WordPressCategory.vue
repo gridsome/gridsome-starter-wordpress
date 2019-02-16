@@ -1,8 +1,6 @@
 <template>
   <Layout>
-    <h1>Category: 
-      <span v-html="$page.category.title" />
-    </h1>
+    <h1>Category: {{ $page.category.title }} </h1>
     <ul class="post-list">
       <li v-for="post in postsInCategory" :key="post._id">
         <h2 v-html="post.node.title"/>

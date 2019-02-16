@@ -5,7 +5,7 @@
     <ul>
       <li v-for="category in $page.wordPressPost.categories" :key="category.id" >
         <router-link :to="category.path">
-          <span v-html="category.slug" />
+          {{ category.slug }}
         </router-link>
       </li>
     </ul>
