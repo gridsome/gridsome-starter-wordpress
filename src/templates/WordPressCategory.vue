@@ -37,12 +37,15 @@ query Category ($path: String, $page: Int) {
 export default {
   computed: {
     postsInCategory: function () {
-      let cat = this.$page.category.slug;
-      let arr = this.$page.posts.edges;
-      let newArr = arr.filter(function(item){
-        return item.node.categories[0].slug === cat;
+      const cat = this.$page.category.slug;
+      const postsArray = this.$page.posts.edges;
+      const postsArrayInCat = postsArray.filter(function(post){
+        var postCats = post.node.categories;
+        for (var i = 0, len = postCats.length; i < len; i++) {
+          return postCats[i].slug === tag
+        }
       })
-      return newArr;
+      return postsArrayInCat;
     }
   }
 }
