@@ -4,7 +4,7 @@
     <ul class="post-list">
       <li v-for="{ node } in $page.wordPressCategory.belongsTo.edges" :key="node.id">
         <h3 v-html="node.title" />
-        <g-image :src="node.featuredMedia.url" class="post-image" />
+        <g-image :src="node.featuredMedia.url" v-if="node.featuredMedia !== null" class="post-image" />
         <div v-html="node.excerpt" />
         <g-link :to="node.path">Read More</g-link>
       </li>
@@ -41,16 +41,3 @@ export default {
   
 }
 </script>
-
-<style>
-  .post-list {
-    list-style: none;
-    padding-left: 0;
-  }
-  .post-list li {
-    padding: 1em 0;
-  }
-  .post-image {
-    max-width: 100%;
-  }
-</style>
