@@ -1,53 +1,44 @@
 <template>
   <Layout>
-    <h1>Category: {{ $page.category.title }} </h1>
-    <ul class="post-list">
-      <li v-for="post in postsInCategory" :key="post._id">
-        <h2 v-html="post.node.title"/>
-        <p v-html="post.node.excerpt"/>
-        <router-link :to="post.node.path">Read more</router-link>
+    <h1>Category: {{ $page.wordPressCategory.title }} </h1>
+    <ul>
+      <li v-for="{ node } in $page.wordPressCategory.belongsTo.edges" :key="node.id">
+        <h3 v-html="node.title" />
+        <p v-html="node.featuredMedia.url" />
+        <p v-html="node.excerpt" />
+        <g-link :to="node.path" >Read More</g-link>
       </li>
     </ul>
   </Layout>
 </template>
 
 <page-query>
-query Category ($path: String, $page: Int) {
-  category: wordPressCategory (path: $path) {
+query Category($path: String) {
+  wordPressCategory(path: $path) {
     title
-    slug
-  }
-  posts: allWordPressPost (page: $page) {
-    edges {
-      node {
-        _id
-        title
-        excerpt
-        path
-        categories {
-          slug
+    belongsTo {
+      edges {
+        node {
+         ... on WordPressPost {
+          	title
+            excerpt
+            path
+            featuredMedia {
+              url
+              mediaType
+            }
+        	} 
         }
       }
     }
   }
 }
+
 </page-query>
 
 <script>
 export default {
-  computed: {
-    postsInCategory: function () {
-      const cat = this.$page.category.slug;
-      const postsArray = this.$page.posts.edges;
-      const postsArrayInCat = postsArray.filter(function(post){
-        var postCats = post.node.categories;
-        for (var i = 0, len = postCats.length; i < len; i++) {
-          return postCats[i].slug === tag
-        }
-      })
-      return postsArrayInCat;
-    }
-  }
+  
 }
 </script>
 
