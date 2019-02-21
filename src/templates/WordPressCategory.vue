@@ -1,12 +1,12 @@
 <template>
   <Layout>
     <h1>Category: {{ $page.wordPressCategory.title }} </h1>
-    <ul>
+    <ul class="post-list">
       <li v-for="{ node } in $page.wordPressCategory.belongsTo.edges" :key="node.id">
         <h3 v-html="node.title" />
-        <p v-html="node.featuredMedia.url" />
-        <p v-html="node.excerpt" />
-        <g-link :to="node.path" >Read More</g-link>
+        <g-image :src="node.featuredMedia.url" class="post-image" />
+        <div v-html="node.excerpt" />
+        <g-link :to="node.path">Read More</g-link>
       </li>
     </ul>
   </Layout>
@@ -19,7 +19,8 @@ query Category($path: String) {
     belongsTo {
       edges {
         node {
-         ... on WordPressPost {
+          ... on WordPressPost {
+            id
           	title
             excerpt
             path
@@ -27,13 +28,12 @@ query Category($path: String) {
               url
               mediaType
             }
-        	} 
+        	}
         }
       }
     }
   }
 }
-
 </page-query>
 
 <script>
@@ -46,9 +46,11 @@ export default {
   .post-list {
     list-style: none;
     padding-left: 0;
-
   }
   .post-list li {
     padding: 1em 0;
+  }
+  .post-image {
+    max-width: 100%;
   }
 </style>
