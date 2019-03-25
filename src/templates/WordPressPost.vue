@@ -1,24 +1,29 @@
 <template>
   <Layout>
     <h1 v-html="$page.wordPressPost.title"/>
-    <h4>Posted in:</h4>
-    <ul class="categories-list">
-      <li v-for="category in $page.wordPressPost.categories" :key="category.id" >
-        <router-link :to="category.path">
-          {{ category.title }}
-        </router-link>
-      </li>
-    </ul>
-    
+    <img
+      v-if="$page.wordPressPost.featuredMedia"
+      :src="$page.wordPressPost.featuredMedia.url"
+      :width="$page.wordPressPost.featuredMedia.width"
+      :alt="$page.wordPressPost.featuredMedia.title"
+    />
     <div v-html="$page.wordPressPost.content"/>
-    <h4>Tags:</h4>
-    <ul class="tags-list">
-      <li v-for="tag in $page.wordPressPost.tags" :key="tag.id" >
-        <router-link :to="tag.path">
-          {{ tag.title }}
-        </router-link>
-      </li>
-    </ul>
+    <template v-if="$page.wordPressPost.categories.length">
+      <h4>Posted in</h4>
+      <ul class="list categories">
+        <li v-for="category in $page.wordPressPost.categories" :key="category.id" >
+          <g-link :to="category.path">{{ category.title }}</g-link>
+        </li>
+      </ul>
+    </template>
+    <template v-if="$page.wordPressPost.tags.length">
+      <h4>Tags</h4>
+      <ul class="list tags">
+        <li v-for="tag in $page.wordPressPost.tags" :key="tag.id" >
+          <g-link :to="tag.path">{{ tag.title }}</g-link>
+        </li>
+      </ul>
+    </template>
   </Layout>
 </template>
 
@@ -27,6 +32,11 @@ query Post ($path: String!) {
   wordPressPost (path: $path) {
     title
     content
+    featuredMedia {
+      url
+      width
+      title
+    }
     categories {
       id
       title
@@ -42,36 +52,33 @@ query Post ($path: String!) {
 </page-query>
 
 <script>
-export default {}
+export default {
+  metaInfo () {
+    return {
+      title: this.$page.wordPressPost.title
+    }
+  }
+}
 </script>
 
 <style>
-  ul.tags-list,
-  ul.categories-list {
+  ul.list {
     list-style: none;
     padding: 0;
-    display: flex;
-    flex-direction: row;
   }
-  ul.tags-list li a,
-  ul.categories-list li a {
-    padding: 0 1em;
+  ul.list li {
     display: inline-block;
+    margin-right: 0.25em;
   }
-  ul.tags-list li:first-child a,
-  ul.categories-list li:first-child a {
-    padding-left: 0;
+  ul.list.tags li a {
+    padding: 0.25em 0.5em;
+    background-color: lightgray;
   }
-  ul.tags-list li:after {
-    content: '|';
-    display: inline-block;
-  }
-  ul.categories-list li:after {
+  ul.list.categories li:after {
     content: ',';
     display: inline-block;
   }
-  ul.tags-list li:last-child:after,
-  ul.categories-list li:last-child:after {
+  ul.list li:last-child:after {
     content: '';
   }
 </style>
