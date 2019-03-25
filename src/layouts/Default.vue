@@ -2,7 +2,7 @@
   <div class="layout">
     <header class="header">
       <strong>
-        <g-link :to="{ name: 'home' }">Gridsome</g-link>
+        <g-link to="/">Gridsome</g-link>
       </strong>
       <nav class="nav">
         <g-link class="nav__link" to="/">Home</g-link>
