@@ -8,7 +8,7 @@
       :alt="$page.wordPressPost.featuredMedia.title"
     />
     <div v-html="$page.wordPressPost.content"/>
-    <template v-if="$page.wordPressPost.categories.length">
+    <template v-if="$page.wordPressPost.categories!=null && $page.wordPressPost.categories.length">
       <h4>Posted in</h4>
       <ul class="list categories">
         <li v-for="category in $page.wordPressPost.categories" :key="category.id" >
@@ -16,7 +16,7 @@
         </li>
       </ul>
     </template>
-    <template v-if="$page.wordPressPost.tags.length">
+    <template v-if="$page.wordPressPost.tags!=null && $page.wordPressPost.tags.length">
       <h4>Tags</h4>
       <ul class="list tags">
         <li v-for="tag in $page.wordPressPost.tags" :key="tag.id" >
