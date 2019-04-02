@@ -1,5 +1,7 @@
 # WordPress starter for Gridsome
 
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/thetre97/gridsome-starter-wordpress)
+
 ## Install
 `gridsome create my-gridsome-project wordpress`
 
