@@ -3,4 +3,4 @@
   command = "gridsome build"
   
 [template.environment]
-  WORDPRESS_URL = "https://twentynineteendemo.wordpress.com"
+  WORDPRESS_URL = "Replace me with your Wordpress URL"
