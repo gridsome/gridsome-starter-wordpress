@@ -5,7 +5,7 @@ module.exports = {
     {
       use: '@gridsome/source-wordpress',
       options: {
-        baseUrl: 'YOUR_WEBSITE_URL', // required
+        baseUrl: process.env.WORDPRESS_URL, // required
         typeName: 'WordPress', // GraphQL schema name (Optional)
         perPage: 100, // How many posts to load from server per request (Optional)
         concurrent: 10, // How many requests to run simultaneously (Optional)
