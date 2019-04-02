@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <h1 v-html="$page.wordPressPost.title"/>
-    <img
+    <g-image
       v-if="$page.wordPressPost.featuredMedia"
       :src="$page.wordPressPost.featuredMedia.sourceUrl"
       :width="$page.wordPressPost.featuredMedia.mediaDetails.width"
