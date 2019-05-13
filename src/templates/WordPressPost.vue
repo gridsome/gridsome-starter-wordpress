@@ -3,9 +3,9 @@
     <h1 v-html="$page.wordPressPost.title"/>
     <img
       v-if="$page.wordPressPost.featuredMedia"
-      :src="$page.wordPressPost.featuredMedia.url"
-      :width="$page.wordPressPost.featuredMedia.width"
-      :alt="$page.wordPressPost.featuredMedia.title"
+      :src="$page.wordPressPost.featuredMedia.sourceUrl"
+      :width="$page.wordPressPost.featuredMedia.mediaDetails.width"
+      :alt="$page.wordPressPost.featuredMedia.altText"
     />
     <div v-html="$page.wordPressPost.content"/>
     <template v-if="$page.wordPressPost.categories.length">
@@ -33,9 +33,11 @@ query Post ($path: String!) {
     title
     content
     featuredMedia {
-      url
-      width
-      title
+      sourceUrl
+      altText
+      mediaDetails {
+        width
+      }
     }
     categories {
       id

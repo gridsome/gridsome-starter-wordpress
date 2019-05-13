@@ -1,0 +1,6 @@
+[build]
+  publish = "dist"
+  command = "gridsome build"
+  
+[template.environment]
+  WORDPRESS_URL = "Replace me with your Wordpress URL"
