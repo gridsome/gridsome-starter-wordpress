@@ -19,8 +19,6 @@ module.exports = {
       options: {
         baseUrl: 'YOUR_WEBSITE_URL', // required
         typeName: 'WordPress', // GraphQL schema name (Optional)
-        perPage: 100, // How many posts to load from server per request (Optional)
-        concurrent: 10, // How many requests to run simultaneously (Optional)
         routes: {
           post: '/:year/:month/:day/:slug', //adds route for "post" post type (Optional)
           post_tag: '/tag/:slug' // adds route for "post_tag" post type (Optional)
@@ -31,6 +29,8 @@ module.exports = {
 }
 
 ```
+
+See all [options](https://gridsome.org/plugins/@gridsome/source-wordpress).
 
 ## Included templates
 
