@@ -28,8 +28,8 @@
 </template>
 
 <page-query>
-query Post ($path: String!) {
-  wordPressPost (path: $path) {
+query WordPressPost ($id: ID!) {
+  wordPressPost(id: $id) {
     title
     content
     featuredMedia {

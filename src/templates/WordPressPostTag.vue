@@ -11,10 +11,10 @@
 </template>
 
 <page-query>
-query Tag ($path: String, $page: Int) {
-  wordPressPostTag (path: $path) {
+query WordPressPostTag ($id: ID!, $page: Int) {
+  wordPressPostTag(id: $id) {
     title
-    belongsTo (page: $page, perPage: 10) @paginate {
+    belongsTo(page: $page, perPage: 10) @paginate {
       pageInfo {
         totalPages
         currentPage

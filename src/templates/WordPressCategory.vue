@@ -11,10 +11,10 @@
 </template>
 
 <page-query>
-query Category ($path: String, $page: Int) {
-  wordPressCategory (path: $path) {
+query WordPressCategory ($id: ID!, $page: Int) {
+  wordPressCategory(id: $id) {
     title
-    belongsTo (page: $page, perPage: 10) @paginate {
+    belongsTo(page: $page, perPage: 10) @paginate {
       pageInfo {
         totalPages
         currentPage
