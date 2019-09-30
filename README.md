@@ -14,19 +14,20 @@ Add your WordPress URL to the plugin options.
 // gridsome.config.js
 
 module.exports = {
-  templates: {
-    WordPressPost: '/:year/:month/:day/:slug', //adds route for "post" post type (Optional)
-    WordPressTag: '/tag/:slug' // adds route for "post_tag" post type (Optional)
-  },
   plugins: [
     {
       use: '@gridsome/source-wordpress',
       options: {
         baseUrl: 'YOUR_WEBSITE_URL', // required
-        typeName: 'WordPress', // GraphQL schema name (Optional)
+        typeName: 'WordPress', // GraphQL schema name
       }
     }
-  ]
+  ],
+  // Setup template routes for any WordPress collection
+  templates: {
+    WordPressPost: '/:year/:month/:day/:slug',
+    WordPressTag: '/tag/:slug'
+  },
 }
 
 ```
